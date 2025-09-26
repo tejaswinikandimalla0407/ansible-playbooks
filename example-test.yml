@@ -1,0 +1,21 @@
+---
+- hosts: webservers
+  user: ansible
+  become: true
+  connection: ssh
+  tasks:
+
+    - name: Install Git on Host Machines
+      action: yum pkg=git state=present
+
+    - name: Install docker on Host Machines
+      action: yum pkg=docker state=present
+    
+    - name: Start Dcoker Server on Host Machines
+      action: service name=docker state=started
+    
+    - name: Stop Docker Server on Host Machines
+      action: service name=docker state=stopped
+    
+    - name: Restart the Docker Server on Host Machines
+      action:  service name=docker state=Restarted
