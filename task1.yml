@@ -22,4 +22,7 @@
 
     - name: Start Httpd Server on Host Machines
       action: service name=httpd state=restarted
+
+    - name: Start My_Sql Server on Host Machines
+      action: yum pkg=mariadb105 state=present
     
