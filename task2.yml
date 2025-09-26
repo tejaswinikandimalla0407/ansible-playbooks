@@ -1,0 +1,19 @@
+---
+- hosts: webservers
+  user: ansible
+  become: true
+  connection: ssh
+  tasks:
+ 
+      - name: Start webserver on Host Machines
+        action: service name=httpd state=started
+ 
+      - name: Install Git on Host Machines
+        action: yum pkg=git state=present
+     
+      - name: Clone Flipkart Clone repo
+        git:
+          repo: https://github.com/Msocial123/Flipkart-Clone.git
+          dest: index.html
+          version: main
+          force: yes
