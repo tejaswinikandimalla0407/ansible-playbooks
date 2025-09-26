@@ -1,0 +1,25 @@
+---
+- hosts: webservers
+  user: ansible
+  become: true
+  connection: ssh
+  tasks:
+
+    - name: Install Java on Host Machines
+      action: yum pkg=java state=present
+
+    - name: Install Python on Host Machines
+      action: yum pkg=python state=present
+    
+    - name: Install Httpd on Host Machines
+      action: yum pkg=httpd state=present
+
+    - name: Start Httpd Server on Host Machines
+      action: service name=httpd state=started
+
+    - name: Start Httpd Server on Host Machines
+      action: service name=httpd state=stopped
+
+    - name: Start Httpd Server on Host Machines
+      action: service name=httpd state=restarted
+    
