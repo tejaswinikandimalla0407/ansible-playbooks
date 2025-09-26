@@ -18,4 +18,4 @@
       action: service name=docker state=stopped
     
     - name: Restart the Docker Server on Host Machines
-      action:  service name=docker state=Restarted
+      action: service name=docker state=restarted
