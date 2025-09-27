@@ -1,0 +1,32 @@
+---
+- name: Install and Configure Docker
+  hosts: webservers
+  remote_user: ansible
+  connection: ssh
+  become: yes
+
+  tasks:
+  - name: Install Docker and dependencies
+    yum:
+      name:
+        - docker
+        - python-pip
+      state: present
+
+  - name: Install docker-py
+    pip:
+      name: docker-py
+      state: present
+
+  - name: Start and Enable Docker
+    service:
+      name: docker
+      state: started
+      enabled: yes
+    notify: Restart Docker
+
+  handlers:
+  - name: Restart Docker
+    service:
+      name: docker
+      state: restarted
