@@ -1,7 +1,7 @@
 ---
 - hosts: webservers
   user: ansible
-  become: yes
+  become: true
   connection: ssh
   tasks:
     - name: Install Openjdk
