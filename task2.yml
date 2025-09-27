@@ -1,7 +1,6 @@
 ---
 - name: Deploy Flipkart Clone on Webservers
   hosts: webservers
-  connection: ssh
   become: yes
   tasks:
  
