@@ -1,0 +1,14 @@
+--- 
+- hosts: webservers 
+  user: ansible 
+  become: yes 
+  connection: ssh 
+  tasks: 
+    - name: I want to create a List of Users 
+      user: name='{{item}}' state=present 
+      with_items:
+        - Murali 
+        - Mohan 
+        - Bharath 
+        - Shaik 
+        - John 
