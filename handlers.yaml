@@ -23,10 +23,10 @@
       name: docker
       state: started
       enabled: yes
-    notify: Restart Docker
+    notify: stopped Docker
 
   handlers:
-  - name: Restart Docker
+  - name: stopped Docker
     service:
       name: docker
-      state: restarted
+      state: stopped
